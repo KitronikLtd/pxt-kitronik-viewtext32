@@ -1,7 +1,7 @@
 /**
  * Kitronik :VIEW TEXT32 blocks
  * LCD chip ST7070
- */
+ **/
 //% weight=100 color=#00A654 icon="\uf26c" block=":VIEW Text32"
 //% groups='["Show","Format","Characters"]'
 namespace Kitronik_VIEWTEXT32 {
