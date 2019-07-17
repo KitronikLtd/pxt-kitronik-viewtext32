@@ -168,7 +168,7 @@ namespace Kitronik_VIEWTEXT32 {
     */
     //% blockId=kitronik_VIEWTEXT32_show_Parameter
     //% group=Format
-    //% block="Show Format: Show Alignment %alignmentSelected| Page update %pageUpdate| Delay(ms) %delaySelected"
+    //% block="show format: show alignment %alignmentSelected| page update %pageUpdate| delay(ms) %delaySelected"
     //% delaySelected.min=500 delaySelected.max=4000
     //% weight=100 blockGap=8
     export function showParameter(alignmentSelected: ShowAlign, pageUpdate: ShowPage, delaySelected: number) {
@@ -186,7 +186,7 @@ namespace Kitronik_VIEWTEXT32 {
     */
     //% blockId=kitronik_VIEWTEXT32_show_string
     //% group=Show
-    //% block="Show String %text"
+    //% block="show string %text"
     //% weight=95 blockGap=8
     export function showString(text: string) {
         if (initialised == false) {
@@ -330,7 +330,7 @@ namespace Kitronik_VIEWTEXT32 {
     */
     //% blockId=kitronik_VIEWTEXT32_scroll_Parameter
     //% group=Format
-    //% block="Scroll Format: Scroll Direction %directionSelected| Position start %formatStart| Position finish %formatFinish| Delay(ms) %delaySelected"
+    //% block="scroll format: scroll direction %directionSelected| position start %formatStart| position finish %formatFinish| delay(ms) %delaySelected"
     //% delaySelected.min=100 delaySelected.max=1000
     //% weight=75 blockGap=8
     export function scrollParameter(directionSelected: ScrollDirection, formatStart: ScrollPosition, formatFinish: ScrollPosition, delaySelected: number) {
@@ -350,7 +350,7 @@ namespace Kitronik_VIEWTEXT32 {
     */
     //% blockId=kitronik_VIEWTEXT32_scroll_string
     //% group=Show
-    //% block="On %selectedLine| Scroll text String %text"
+    //% block="on %selectedLine| scroll text string %text"
     //% weight=75 blockGap=8
     export function scrollString(selectedLine: DisplayLine, text: string) {
         if (initialised == false) {
@@ -448,7 +448,7 @@ namespace Kitronik_VIEWTEXT32 {
     */
     //% blockId=kitronik_VIEWTEXT32_clear_Display
     //% group=Show
-    //% block="Clear Display"
+    //% block="clear display"
     //% weight=75 blockGap=8
     export function clearDisplay() {
         if (initialised == false) {
@@ -472,7 +472,7 @@ namespace Kitronik_VIEWTEXT32 {
     */
     //% blockId=kitronik_VIEWTEXT32_clear_Display_Line
     //% group=Show
-    //% block="Clear Display Line %selectedLine"
+    //% block="clear display line %selectedLine"
     //% weight=75 blockGap=8
     export function clearDisplayLine(selectedLine: DisplayLine) {
         if (initialised == false) {
