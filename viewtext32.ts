@@ -187,6 +187,7 @@ namespace Kitronik_VIEWTEXT32 {
     //% blockId=kitronik_VIEWTEXT32_show_string
     //% group=Show
     //% block="show string %text"
+    //% text.shadowOptions.toString=true
     //% weight=95 blockGap=8
     export function showString(text: string) {
         if (initialised == false) {
@@ -351,6 +352,7 @@ namespace Kitronik_VIEWTEXT32 {
     //% blockId=kitronik_VIEWTEXT32_scroll_string
     //% group=Show
     //% block="on %selectedLine| scroll text string %text"
+    //% text.shadowOptions.toString=true
     //% weight=75 blockGap=8
     export function scrollString(selectedLine: DisplayLine, text: string) {
         if (initialised == false) {
