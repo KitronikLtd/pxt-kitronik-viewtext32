@@ -323,6 +323,47 @@ namespace Kitronik_VIEWTEXT32 {
 
 
     /**
+	* Display on line string will show the text on the selected line with no scrolling.
+    * String is automatically cut to 16 charectors
+    * @param text Inputted String to display on screen eg: "Hello!"
+    */
+    //% blockId=kitronik_VIEWTEXT32_display_single_line
+    //% group=Show
+    //% block="display on %selectedLine| string %text"
+    //% text.shadowOptions.toString=true
+    //% weight=95 blockGap=8
+    export function displaySingleLineString(selectedLine: DisplayLine, text: string) {
+        if (initialised == false) {
+            init()
+        }
+        let lengthOfText = text.length
+
+        if (lengthOfText >= 16)
+        {
+            text = text.substr(0, 16)
+        }
+        else (lengthOfText < 16)
+        {
+            if (text.length < 16) {
+                while (text.length < 16) {
+                    text = text + " "
+                }
+            }
+        }
+        
+        if (selectedLine = DisplayLine.Top)
+        {
+            displayStringOnLine(LCD_LINE1, text)
+        }
+        else if (selectedLine = DisplayLine.Bottom)
+        {
+            displayStringOnLine(LCD_LINE2, text)
+        }
+    }
+
+
+
+    /**
     * Scroll Format block allows to set direction of scroll, start and finish position of scroll, and speed adjustment in a delay time
     * @param directionSelected is the direction of scrolling on the display
     * @param formatStart is the selection where the scroll position starts
