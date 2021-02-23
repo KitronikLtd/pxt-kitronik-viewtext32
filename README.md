@@ -27,7 +27,7 @@ Clear Display Line block will clear what is currently displayed on the selected 
 Kitronik_VIEWTEXT32.clearDisplayLine(Kitronik_VIEWTEXT32.DisplayLine.Top)
 ```
 
-Show Parameter block allows the user to alter the alignment of text, update a single line or double lines of the screen, select time delay between refresh of screen. THe block needs to be placed before a show string block for the changes to take effect:
+Show Parameter block allows the user to alter the alignment of text, update a single line or double lines of the screen, select time delay between refresh of screen. The block needs to be placed before a show string block for the changes to take effect:
 ```blocks
 Kitronik_VIEWTEXT32.showParameter(Kitronik_VIEWTEXT32.ShowAlign.Left, Kitronik_VIEWTEXT32.ShowPage.Single, 1500)
 ```
