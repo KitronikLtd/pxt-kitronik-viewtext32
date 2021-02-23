@@ -45,7 +45,7 @@ Kitronik_VIEWTEXT32.ScrollPosition.Off,
 
 Emjoicon block gives a list of emojis that can be added into a string of text using join text or displayed on their own:
 ```blocks
-Kitronik_VIEWTEXT32.displayEmjoicon(Kitronik_VIEWTEXT32.Emoticon.Happy)
+let myString = "Hello" + Kitronik_VIEWTEXT32.displayEmjoicon(Kitronik_VIEWTEXT32.Emoticon.Happy)
 ```
 
 ## License
