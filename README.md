@@ -32,7 +32,7 @@ Show Parameter block allows the user to alter the alignment of text, update a si
 Kitronik_VIEWTEXT32.showParameter(Kitronik_VIEWTEXT32.ShowAlign.Left, Kitronik_VIEWTEXT32.ShowPage.Single, 1500)
 ```
 
-Scroll Parameter block allows the user to alter the direction of the scroll of text, select the start and finish positions of the scrolling test, select time delay between refresh of screen. THe block needs to be placed before a scroll string block for the changes to take effect:
+Scroll Parameter block allows the user to alter the direction of the scroll of text, select the start and finish positions of the scrolling test, select time delay between refresh of screen. The block needs to be placed before a scroll string block for the changes to take effect:
 ```blocks
 
 Kitronik_VIEWTEXT32.scrollParameter(
