@@ -1,6 +1,6 @@
 {
     "name": "pxt-kitronik-viewtext32",
-    "version": "1.0.4",
+    "version": "1.1.0",
     "description": "Blocks to simplify using Kitronik :VIEW Text32 board in PXT",
     "license": "MIT",
     "dependencies": {
