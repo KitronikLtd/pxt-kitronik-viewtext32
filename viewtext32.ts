@@ -99,20 +99,21 @@ namespace Kitronik_VIEWTEXT32 {
 		displayShowTime = 1000
 	
         pins.digitalWritePin(DigitalPin.P14, 0)                         //Pin14 used as a reset line from the micro:bit
+        basic.pause(500)
         pins.spiPins(DigitalPin.P15, DigitalPin.P14, DigitalPin.P13)    //MOSI set to pin 15, CLK set to pin 13
         pins.spiFrequency(250000)                                       //set the clock frequency to 250kHz
         pins.spiFormat(8, 0)                                            //8 bytes and normal polarity
         pins.digitalWritePin(DigitalPin.P14, 1)                         //set the reset line high to enable to the LCD
 
-        basic.pause(1000)
+        basic.pause(500)                                               //clear display before going to write mode
         pins.spiWrite(FUNCTION_SET1_CMD)//function set1 ext=0
-        control.waitMicros(40)
+        control.waitMicros(50)
         pins.spiWrite(DISPLAY_ON)//display on
-        control.waitMicros(40)
+        control.waitMicros(50)
         pins.spiWrite(CLEAR_DISPLAY)//clear display
         control.waitMicros(2000)
         pins.spiWrite(0x06)//entry mode set
-        control.waitMicros(40)
+        control.waitMicros(50)
 
         initialised = true
     }
