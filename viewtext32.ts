@@ -18,9 +18,9 @@ namespace Kitronik_VIEWTEXT32 {
 
     //Enums for selection from blocks
     export enum DisplayLine {
-        //% block="Top Line"
+        //% block="Top"
         Top,
-        //% block="Bottom Line"
+        //% block="Bottom"
         Bottom
     }
 
@@ -329,7 +329,7 @@ namespace Kitronik_VIEWTEXT32 {
     */
     //% blockId=kitronik_VIEWTEXT32_display_single_line
     //% group=Show
-    //% block="display on %selectedLine| string %text"
+    //% block="display on %selectedLine| line string %text"
     //% text.shadowOptions.toString=true
     //% weight=95 blockGap=8
     export function displaySingleLineString(selectedLine: DisplayLine, text: string) {
@@ -340,22 +340,20 @@ namespace Kitronik_VIEWTEXT32 {
 
         if (lengthOfText >= 16)
         {
-            text = text.substr(0, 16)
+            text = text.substr(0, 15)
         }
         else (lengthOfText < 16)
         {
-            if (text.length < 16) {
-                while (text.length < 16) {
-                    text = text + " "
-                }
+            while (text.length < 15) {
+                text = text + " "
             }
         }
         
-        if (selectedLine = DisplayLine.Top)
+        if (selectedLine == DisplayLine.Top)
         {
             displayStringOnLine(LCD_LINE1, text)
         }
-        else if (selectedLine = DisplayLine.Bottom)
+        else if (selectedLine == DisplayLine.Bottom)
         {
             displayStringOnLine(LCD_LINE2, text)
         }
