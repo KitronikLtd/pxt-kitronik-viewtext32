@@ -40,17 +40,9 @@ namespace servers {
         }
     }
 
-    function start() {
-        if (!jacdac.isSimulator()) {
-            const servers: jacdac.Server[] = [
-                new CharacterScreenServer()
-            ]
-            for(const server of servers)
-                server.start()
-        }
-        if (jacdac.checkProxy()) jacdac.proxyFinalize()
-    }
-    start()
+    jacdac.startSelfServers(() => [
+        new CharacterScreenServer()
+    ])
 }
 
 namespace modules {
