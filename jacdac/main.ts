@@ -35,9 +35,8 @@ namespace servers {
 
         private syncMessage() {
             if (!this.message) Kitronik_VIEWTEXT32.clearDisplay()
-            else {
+            else
                 Kitronik_VIEWTEXT32.showString(this.message)
-            }
         }
     }
 
