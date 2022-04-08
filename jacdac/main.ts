@@ -40,9 +40,12 @@ namespace servers {
         }
     }
 
-    jacdac.startSelfServers(() => [
-        new CharacterScreenServer()
-    ])
+    function start() {
+        jacdac.startSelfServers(() => [
+            new CharacterScreenServer()
+        ])
+    }
+    start()
 }
 
 namespace modules {
