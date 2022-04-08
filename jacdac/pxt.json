@@ -6,8 +6,8 @@
         "radio": "*",
         "microphone": "*",
         "pxt-kitronik-viewtext32": "github:pelikhan/pxt-kitronik-viewtext32",
-        "jacdac": "github:microsoft/pxt-jacdac#v0.8.20",
-        "jacdac-character-screen": "github:microsoft/pxt-jacdac/character-screen#v0.8.20"
+        "jacdac": "github:microsoft/pxt-jacdac#v0.8.22",
+        "jacdac-character-screen": "github:microsoft/pxt-jacdac/character-screen#v0.8.22"
     },
     "files": [
         "main.ts",
