@@ -1,10 +1,11 @@
 {
     "name": "jacdac-kitronik-viewtext32",
+    "version": "1.2.2",
     "dependencies": {
         "core": "*",
         "radio": "*",
         "microphone": "*",
-        "pxt-kitronik-viewtext32": "github:pelikhan/pxt-kitronik-viewtext32#v1.2.1",
+        "pxt-kitronik-viewtext32": "github:pelikhan/pxt-kitronik-viewtext32",
         "jacdac": "github:microsoft/pxt-jacdac#v0.8.20",
         "jacdac-character-screen": "github:microsoft/pxt-jacdac/character-screen#v0.8.20"
     },
