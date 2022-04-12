@@ -6,8 +6,8 @@
         "radio": "*",
         "microphone": "*",
         "pxt-kitronik-viewtext32": "github:pelikhan/pxt-kitronik-viewtext32",
-        "jacdac": "github:microsoft/pxt-jacdac#v0.8.22",
-        "jacdac-character-screen": "github:microsoft/pxt-jacdac/character-screen#v0.8.22"
+        "jacdac": "github:microsoft/pxt-jacdac#v0.9.3",
+        "jacdac-character-screen": "github:microsoft/pxt-jacdac/character-screen#v0.9.3"
     },
     "files": [
         "main.ts",
@@ -17,7 +17,7 @@
         "test.ts"
     ],
     "targetVersions": {
-        "target": "4.1.16",
+        "target": "4.0.18",
         "targetId": "microbit"
     },
     "supportedTargets": [

@@ -2,13 +2,21 @@
 namespace Kitronik_VIEWTEXT32 {
 }
 
+namespace modules {
+    /**
+     * A Jacdac client for the Kitronik ViewText32 Character display
+     */
+    //% fixedInstance block="kitronik viewtext32 display"
+    export const kitronikViewtext32Display = new CharacterScreenClient("kitronik viewtext32 display?device=self")
+}
+
 namespace servers {
     class CharacterScreenServer extends jacdac.Server {
         textDirection = jacdac.CharacterScreenTextDirection.LeftToRight
         message: string = ""
 
         constructor() {
-            super("screen", jacdac.SRV_CHARACTER_SCREEN, {
+            super(jacdac.SRV_CHARACTER_SCREEN, {
                 variant: jacdac.CharacterScreenVariant.OLED,
             })
         }
@@ -17,17 +25,23 @@ namespace servers {
             this.textDirection = this.handleRegValue(
                 pkt,
                 jacdac.CharacterScreenReg.TextDirection,
-                "u8",
+                jacdac.CharacterScreenRegPack.TextDirection,
                 this.textDirection
             )
-            this.handleRegUInt32(pkt, jacdac.CharacterScreenReg.Columns, 16) // NUMBER_OF_CHAR_PER_LINE
-            this.handleRegUInt32(pkt, jacdac.CharacterScreenReg.Rows, 2) // NUMBER_OF_CHAR_PER_LINE
+            this.handleRegFormat(pkt,
+                jacdac.CharacterScreenReg.Columns,
+                jacdac.CharacterScreenRegPack.Columns, 
+                [16]) // NUMBER_OF_CHAR_PER_LINE
+            this.handleRegFormat(pkt, 
+                jacdac.CharacterScreenReg.Rows, 
+                jacdac.CharacterScreenRegPack.Rows, 
+                [2]) // NUMBER_OF_CHAR_PER_LINE
 
             const oldMessage = this.message
             this.message = this.handleRegValue(
                 pkt,
                 jacdac.CharacterScreenReg.Message,
-                "s",
+                jacdac.CharacterScreenRegPack.Message,
                 this.message
             )
             if (this.message != oldMessage) this.syncMessage()
@@ -46,12 +60,4 @@ namespace servers {
         ])
     }
     start()
-}
-
-namespace modules {
-    /**
-     * A Jacdac client for the Kitronik ViewText32 Character display
-     */
-    //% fixedInstance block="kitronik viewtext32 display"
-    export const kitronikViewtext32Display = new CharacterScreenClient("kitronik viewtext32 display?device=self")
 }
