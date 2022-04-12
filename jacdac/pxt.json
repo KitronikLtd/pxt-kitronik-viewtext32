@@ -1,6 +1,6 @@
 {
     "name": "jacdac-kitronik-viewtext32",
-    "version": "1.2.4",
+    "version": "1.2.5",
     "dependencies": {
         "core": "*",
         "radio": "*",
