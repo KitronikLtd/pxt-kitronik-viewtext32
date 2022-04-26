@@ -7,7 +7,7 @@ namespace modules {
      * A Jacdac client for the Kitronik ViewText32 Character display
      */
     //% fixedInstance block="kitronik viewtext32 display"
-    export const kitronikViewtext32Display = new CharacterScreenClient("kitronik viewtext32 display?device=self")
+    export const kitronikViewtext32Display = new CharacterScreenClient("kitronik display?dev=self&rows=2&columns=16")
 }
 
 namespace servers {
