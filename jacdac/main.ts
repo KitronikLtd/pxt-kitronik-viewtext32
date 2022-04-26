@@ -55,6 +55,7 @@ namespace servers {
     }
 
     function start() {
+        jacdac.productIdentifier = 0x3adedacc
         jacdac.startSelfServers(() => [
             new CharacterScreenServer()
         ])
