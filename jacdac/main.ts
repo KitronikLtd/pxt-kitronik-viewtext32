@@ -6,8 +6,8 @@ namespace modules {
     /**
      * A Jacdac client for the Kitronik ViewText32 Character display
      */
-    //% fixedInstance block="kitronik viewtext32 display"
-    export const kitronikViewtext32Display = new CharacterScreenClient("kitronik display?dev=self&rows=2&columns=16")
+    //% fixedInstance block="kitronik viewtext32"
+    export const kitronikViewtext32Display = new CharacterScreenClient("kitronik viewtext32?dev=self&rows=2&columns=16&variant=LCD")
 }
 
 namespace servers {
@@ -18,6 +18,7 @@ namespace servers {
         constructor() {
             super(jacdac.SRV_CHARACTER_SCREEN, {
                 variant: jacdac.CharacterScreenVariant.OLED,
+                statusCode: jacdac.SystemStatusCodes.Initializing
             })
         }
 
@@ -28,14 +29,14 @@ namespace servers {
                 jacdac.CharacterScreenRegPack.TextDirection,
                 this.textDirection
             )
-            this.handleRegFormat(pkt,
+            this.handleRegValue(pkt,
                 jacdac.CharacterScreenReg.Columns,
-                jacdac.CharacterScreenRegPack.Columns, 
-                [16]) // NUMBER_OF_CHAR_PER_LINE
-            this.handleRegFormat(pkt, 
-                jacdac.CharacterScreenReg.Rows, 
-                jacdac.CharacterScreenRegPack.Rows, 
-                [2]) // NUMBER_OF_CHAR_PER_LINE
+                jacdac.CharacterScreenRegPack.Columns,
+                16) // NUMBER_OF_CHAR_PER_LINE
+            this.handleRegValue(pkt,
+                jacdac.CharacterScreenReg.Rows,
+                jacdac.CharacterScreenRegPack.Rows,
+                2) // NUMBER_OF_CHAR_PER_LINE
 
             const oldMessage = this.message
             this.message = this.handleRegValue(
@@ -44,10 +45,10 @@ namespace servers {
                 jacdac.CharacterScreenRegPack.Message,
                 this.message
             )
-            if (this.message != oldMessage) this.syncMessage()
+            if (this.message != oldMessage) this.sync()
         }
 
-        private syncMessage() {
+        sync() {
             if (!this.message) Kitronik_VIEWTEXT32.clearDisplay()
             else
                 Kitronik_VIEWTEXT32.showString(this.message)
@@ -56,9 +57,16 @@ namespace servers {
 
     function start() {
         jacdac.productIdentifier = 0x3adedacc
-        jacdac.startSelfServers(() => [
-            new CharacterScreenServer()
-        ])
+        jacdac.deviceDescription = "Kitronik ViewText32"
+        jacdac.startSelfServers(() => {
+            const lcd = new CharacterScreenServer()
+            const servers: jacdac.Server[] = [lcd]
+            control.runInParallel(() => {
+                lcd.sync()
+                lcd.setStatusCode(jacdac.SystemStatusCodes.Ready)
+            })
+            return servers
+        })
     }
     start()
 }
