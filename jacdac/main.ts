@@ -17,8 +17,7 @@ namespace servers {
 
         constructor() {
             super(jacdac.SRV_CHARACTER_SCREEN, {
-                variant: jacdac.CharacterScreenVariant.OLED,
-                statusCode: jacdac.SystemStatusCodes.Initializing
+                variant: jacdac.CharacterScreenVariant.OLED
             })
         }
 
@@ -59,12 +58,9 @@ namespace servers {
         jacdac.productIdentifier = 0x3adedacc
         jacdac.deviceDescription = "Kitronik ViewText32"
         jacdac.startSelfServers(() => {
+            Kitronik_VIEWTEXT32.clearDisplay()
             const lcd = new CharacterScreenServer()
             const servers: jacdac.Server[] = [lcd]
-            control.runInParallel(() => {
-                lcd.sync()
-                lcd.setStatusCode(jacdac.SystemStatusCodes.Ready)
-            })
             return servers
         })
     }
