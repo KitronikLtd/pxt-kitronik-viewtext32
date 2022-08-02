@@ -339,23 +339,21 @@ namespace Kitronik_VIEWTEXT32 {
         }
         let lengthOfText = text.length
 
-        if (lengthOfText >= 16)
-        {
-            text = text.substr(0, 15)
+        // Check whether the string is longer or shorter than 16 and make adjustments if necessary 
+        // Ignore this section if string is exactly 16 characters
+        if (lengthOfText > 16) {
+            text = text.substr(0, 16)
         }
-        else (lengthOfText < 16)
-        {
-            while (text.length < 15) {
+        else if (lengthOfText <=15) {
+            while (text.length <= 15) {
                 text = text + " "
             }
         }
-        
-        if (selectedLine == DisplayLine.Top)
-        {
+
+        if (selectedLine == DisplayLine.Top) {
             displayStringOnLine(LCD_LINE1, text)
         }
-        else if (selectedLine == DisplayLine.Bottom)
-        {
+        else if (selectedLine == DisplayLine.Bottom) {
             displayStringOnLine(LCD_LINE2, text)
         }
     }
